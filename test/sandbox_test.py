@@ -62,3 +62,13 @@ class SandboxTest(unittest.TestCase):
         print(ones_array)
         ones_ints_array = np.ones((5, 2), dtype=np.int_)
         print(ones_ints_array)
+
+    def test_numpy_random_arrays(self):
+        random_array = np.random.random([6, 6])
+        print(random_array)
+
+    def test_normal_distribution(self):
+        normal = np.random.normal(50, 10, size=(5, 5))
+        print(normal)
+        plt.plot(normal)
+        plt.show()
