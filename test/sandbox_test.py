@@ -106,4 +106,6 @@ class SandboxTest(unittest.TestCase):
         mean = array.mean()
         print("Mean is : {}".format(mean))
         print(array[array<mean])
+        array[array<mean] = mean
+        print(array)
 
