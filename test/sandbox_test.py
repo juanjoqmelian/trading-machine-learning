@@ -5,6 +5,7 @@ from pandas import DataFrame
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import time
 
 from data_frame_creator import DataFrameCreator
 
@@ -92,3 +93,11 @@ class SandboxTest(unittest.TestCase):
         print("Min number for each row : {}".format(random_array.min(axis=1)))
         print("Min number for all elements : {}".format(random_array.min()))
         print("Mean for all elements : {}".format(random_array.mean()))
+
+    def test_timing(self):
+        random_big_array = np.random.randint(0, 100, size=(1000, 10000))
+        t1 = time.time()
+        print("Mean of array is : {}".format(str(random_big_array.mean())))
+        t2 = time.time()
+        print("Time taken to calculate mean was : {} seconds".format(t2 - t1))
+
