@@ -101,3 +101,9 @@ class SandboxTest(unittest.TestCase):
         t2 = time.time()
         print("Time taken to calculate mean was : {} seconds".format(t2 - t1))
 
+    def test_array_masking(self):
+        array = np.array([2, 8, 20, 50, 30, 1, 0, 7, 4, 40, 42])
+        mean = array.mean()
+        print("Mean is : {}".format(mean))
+        print(array[array<mean])
+
