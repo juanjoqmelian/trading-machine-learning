@@ -72,3 +72,23 @@ class SandboxTest(unittest.TestCase):
         print(normal)
         plt.plot(normal)
         plt.show()
+
+    def test_fixed_random_array(self):
+        np.random.seed(222)
+        random_array = np.random.randint(0, 100, size=(6, 6))
+        print(random_array)
+        print("Sum of columns : {}".format(random_array.sum(axis=0)))
+        print("Sum of rows : {}".format(random_array.sum(axis=1)))
+        print("Sum of all elements : {}".format(random_array.sum()))
+
+    def test_max_min_and_mean(self):
+        np.random.seed(222)
+        random_array = np.random.randint(0, 100, size=(6, 6))
+        print(random_array)
+        print("Max number for each column : {}".format(random_array.max(axis=0)))
+        print("Max number for each row : {}".format(random_array.max(axis=1)))
+        print("Max number for all elements : {}".format(random_array.max()))
+        print("Min number for each column : {}".format(random_array.min(axis=0)))
+        print("Min number for each row : {}".format(random_array.min(axis=1)))
+        print("Min number for all elements : {}".format(random_array.min()))
+        print("Mean for all elements : {}".format(random_array.mean()))
