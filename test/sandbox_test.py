@@ -109,3 +109,18 @@ class SandboxTest(unittest.TestCase):
         array[array<mean] = mean
         print(array)
 
+    def test_rolling_mean(self):
+        date_range = pd.date_range('2012-09-01', '2012-09-15')
+        date_range_df = pd.DataFrame(index=date_range)
+        goog = pd.read_csv('../resources/GOOG.csv', index_col='Date', parse_dates=True)
+        date_range_df = date_range_df.join(goog, how='inner')
+        print(date_range_df)
+        plot = date_range_df['AdjClose'].plot(title='GOOG rolling mean', label='GOOG')
+        rolling__mean = date_range_df['AdjClose'].rolling(3).mean()
+        rolling__mean.plot(label='Rolling Mean', ax=plot)
+        plot.set_xlabel('Date')
+        plot.set_ylabel('Close price')
+        plot.legend(loc='upper left')
+        plt.show()
+        
+
